@@ -13,7 +13,7 @@ export const Index = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#6e15ad',
     alignItems: 'center',
     justifyContent: 'center',
   },

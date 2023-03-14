@@ -9,4 +9,5 @@ Running the development version:
 > 1. clone
 > 2. run ```npm install```
 > 3. run ```npx expo start```
-> 4. press w for web, a for android.
+> 4. press w for web. Scan QR code on screen to run on iOS and Android.
+
