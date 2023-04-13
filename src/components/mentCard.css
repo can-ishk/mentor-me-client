@@ -1,0 +1,17 @@
+.ment-card .primary .content {
+    -webkit-mask-image: linear-gradient(black 175px, transparent 250px);
+    mask-image: linear-gradient(black 175px, transparent 250px);
+  }
+  
+  .ment-card .secondary .title {
+    -webkit-mask-image: linear-gradient(black 70px, transparent 125px);
+    mask-image: linear-gradient(black 70px, transparent 125px);
+  }
+  
+  html {
+    overflow-y: scroll;
+  }
+  
+  
+  
+  

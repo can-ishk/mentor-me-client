@@ -8,19 +8,20 @@ import {
     Box,
 } from '@mui/material';
 import React, { useState } from "react";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { isLength, isEmail, contains } from "validator";
 
 import ErrorAlert from '../components/ErrorAlert';
 
 import { signup } from "../handlers/users";
 import { logInUser } from "../helpers/authHelper";
+import Footer from '../components/Footer';
 
 
 
 
 export default function SignUp() {
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
     const [serverError, setServerError] = useState("");
     const [errors, setErrors] = useState({});
 
@@ -48,7 +49,7 @@ export default function SignUp() {
             setServerError(data.error);
         } else {
             logInUser(data);
-            // navigate("/");
+            navigate("/");
         }
     };
 
@@ -161,6 +162,7 @@ export default function SignUp() {
           <Copyright />
         </Box> */}
             </Stack>
+            <Footer/>
         </Container>
     )
 

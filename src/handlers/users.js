@@ -1,4 +1,4 @@
-const BASE_URL = process.env.BASE_URL
+import { BASE_URL } from "../config";
 
 const signup = async (user) => {
     try {

@@ -6,8 +6,8 @@ function logInUser(user){
     localStorage.setItem("user", JSON.stringify(user));
 }
 
-function logOut(){
+function logOutUser(){
     localStorage.removeItem("user");
 }
 
-export {isLoggedIn, logInUser, logOut};
+export {isLoggedIn, logInUser, logOutUser};
