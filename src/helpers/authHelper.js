@@ -2,7 +2,7 @@ function isLoggedIn(){
     return JSON.parse(localStorage.getItem("user"));
 }
 
-function logIn(user){
+function logInUser(user){
     localStorage.setItem("user", JSON.stringify(user));
 }
 
@@ -10,4 +10,4 @@ function logOut(){
     localStorage.removeItem("user");
 }
 
-export {isLoggedIn, logIn, logOut};
+export {isLoggedIn, logInUser, logOut};
