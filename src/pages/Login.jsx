@@ -37,6 +37,7 @@ export default function LogIn() {
         if (data.error) {
             setServerError(data.error);
         } else {
+            console.log(data);
             logInUser(data);
             navigate("/");
         }
@@ -73,7 +74,7 @@ export default function LogIn() {
                         fullWidth
                         required
                         margin="normal"
-                        id="password  "
+                        id="password"
                         name="password"
                         onChange={handleChange}
                         type="password"
