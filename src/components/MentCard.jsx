@@ -148,10 +148,6 @@ export default function MentCard(props) {
                   <Markdown content={ment.content} />
                 </Box>
               ))}
-
-            <HorizontalStack sx={{ mt: 1 }}>
-              <AiFillMessage />
-            </HorizontalStack>
           </MentContentBox>
         </HorizontalStack>
       </Box>

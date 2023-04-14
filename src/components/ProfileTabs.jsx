@@ -10,8 +10,6 @@ export default function ProfileTabs(props){
     <Card sx={{ padding: 0 }}>
       <Tabs value={props.tab} onChange={handleChange} variant="scrollable">
         <Tab label="ments" value="ments" />
-        <Tab label="Liked" value="liked" />
-        <Tab label="Comments" value="comments" />
       </Tabs>
     </Card>
   );
