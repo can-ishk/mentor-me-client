@@ -98,7 +98,8 @@ export default function NavBar() {
                         <TextField
                             size="small"
                             label="Search"
-                            sx={{ flexGrow: 1, maxWidth: 600,}}
+                            
+                            sx={{ flexGrow: 1, width: 600}}
                             onChange={handleChange}
                             value={search}
                         />

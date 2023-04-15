@@ -35,7 +35,7 @@ export default function ContentUpdateEditor(props){
           fullWidth
           margin="normal"
           name="content"
-          sx={{ backgroundColor: "white" }}
+          sx={{ backgroundColor: "gray" }}
           onChange={handleChange}
           error={error.length !== 0}
           helperText={error}
