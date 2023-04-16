@@ -64,7 +64,11 @@ export default function NavBar() {
     };
 
     return (
-        <Stack mb={2}>
+        <Stack mb={2} sx={{
+            // backgroundColor: '#161b22',
+            // width: '100%',
+            // marginLeft: 'auto'
+        }}>
             <Stack
                 direction="row"
                 alignItems="center"
@@ -72,6 +76,7 @@ export default function NavBar() {
                 sx={{
                     pt: 2,
                     pb: 0,
+                    
                 }}
                 spacing={!mobile ? 2 : 0}
             >

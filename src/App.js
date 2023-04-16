@@ -1,4 +1,3 @@
-import './App.css';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import Test from './pages/Test';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';

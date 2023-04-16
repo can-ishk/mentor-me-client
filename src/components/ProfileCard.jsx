@@ -74,11 +74,11 @@ export default function ProfileCard (props) {
           )}
 
           <HorizontalStack>
+            {/* <Typography color="text.secondary">
+              Coins <b>{props.profile.ments.}</b>
+            </Typography> */}
             <Typography color="text.secondary">
-              Likes <b>{props.profile.ments.likeCount}</b>
-            </Typography>
-            <Typography color="text.secondary">
-              ments <b>{props.profile.ments.count}</b>
+              Ments <b>{props.profile.ments.count}</b>
             </Typography>
           </HorizontalStack>
         </Stack>
