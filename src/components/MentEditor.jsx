@@ -3,10 +3,17 @@ import {
   Card,
   Link,
   Stack,
+  FormControl,
+  MenuItem,
+  Chip,
+  FormHelperText,
+  InputLabel,
   TextField,
   Typography,
 } from "@mui/material";
 import { Box } from "@mui/system";
+import Select from "react-select";
+import options from "./options";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { createMent } from "../handlers/ments";
@@ -15,11 +22,49 @@ import { isLoggedIn, logOutUser } from "../helpers/authHelper";
 import HorizontalStack from "./util/HorizontalStack";
 import Avatar from "./Avatar";
 import { dishonourableLogout } from "../helpers/dishonourableLogoutHelper";
+// import MultiValue from "react-select/dist/declarations/src/components/MultiValue";
+
+const styles = {
+  control: (base, state) => ({
+    ...base,
+    background: '#101010',
+    color: '#fff',
+  }),
+  menu: (base) => ({
+    ...base,
+    background: '#101010',
+    color: '#fff',
+  }),
+  multiValue: styles => {
+    return {
+      ...styles,
+      backgroundColor: "papayawhip"
+    };
+  }
+};
+
+const options2 = [
+  { value: '', label: '' },
+  { value: 'Looking for a teammate', label: 'Looking for a teammate' },
+  { value: 'Seeking help regarding Higher Studies', label: 'Seeking help regarding Higher Studies' },
+  { value: 'Seeking help regarding Industry', label: 'Seeking help regarding Industry' }
+];
+
 
 const MentEditor = () => {
+  //new additions
+  const [selected, setSelected] = useState([]);
+  const selectionChangeHandler = (event) => {
+    setSelected(event.target.value);
+  };
+  // --------
+
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
-
+  const [values, setValues] = useState({
+    type: '',
+  });
+  
   const [formData, setFormData] = useState({
     title: "",
     content: "",
@@ -52,7 +97,6 @@ const MentEditor = () => {
 
   const validate = () => {
     const errors = {};
-
     return errors;
   };
 
@@ -75,6 +119,50 @@ const MentEditor = () => {
         </Typography>
 
         <Box component="form" onSubmit={handleSubmit}>
+          
+
+        {/* Type of Ment */}
+          <FormControl fullWidth required margin="dense">
+            <InputLabel htmlFor="type">Type of Ment</InputLabel>
+            <Select  
+                inputProps={{ id: 'type' }} 
+                isSearchable
+                styles={styles}
+                closeMenuOnSelect={false}
+                // isMulti
+                options={options2}
+                defaultValue={options2[0]}
+            />
+              {errors.type && (
+                <FormHelperText error>{errors.type}</FormHelperText>)}
+          </FormControl>
+          
+
+          {/* Users Departement */}
+          <FormControl fullWidth required margin="normal">
+            <InputLabel htmlFor="type">Insert your department name</InputLabel>
+            <Select
+              styles={styles}
+              closeMenuOnSelect={false}
+              // isMulti
+              options={options}
+              defaultValue={options[0]}
+            />
+          </FormControl>
+          
+
+          {/* Looking for people from which Departement */}
+          <FormControl fullWidth required margin="normal">
+            <InputLabel htmlFor="type">You are finding people of which department?</InputLabel>
+            <Select
+              styles={styles}
+              closeMenuOnSelect={false}
+              isMulti
+              options={options}
+              defaultValue={options[0]}
+            /> 
+          </FormControl>
+        
           <TextField
             fullWidth
             label="Title"
@@ -109,6 +197,7 @@ const MentEditor = () => {
           >
             {loading ? <>Submitting</> : <>Submit</>}
           </Button>
+          
         </Box>
       </Stack>
     </Card>

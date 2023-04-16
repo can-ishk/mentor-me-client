@@ -33,7 +33,7 @@ function App() {
           />
           <Route path="/search" element={<Search />} />
           <Route path="/users/:id" element={<Profile/>} />
-          <Route path="/login" element={<LogIn/>} />
+          <Route path="/logIn" element={<LogIn/>} />
           <Route path="/signup" element={<SignUp />} />
         </Routes>
       </BrowserRouter>
