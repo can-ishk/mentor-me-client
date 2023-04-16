@@ -43,7 +43,7 @@ const Ment = () => {
           loading ? (
             <Loading />
           ) : ment ? (
-            <Stack spacing={2}>
+            <Stack spacing={2} >
               <MentCard ment={ment} key={ment._id} />
             </Stack>
           ) : (

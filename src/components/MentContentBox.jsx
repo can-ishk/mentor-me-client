@@ -19,12 +19,13 @@ export default function MentContentBox(props) {
             margin: "auto",
             "&:hover": { backgroundColor: "divider", cursor: "pointer" },
           }}
+          
           onClick={() => navigate("/ments/" + ment._id)}
         >
           {props.children}
         </Box>
       ) : (
-        <Box sx={{ padding: theme.spacing(2), width: "90%" }}>
+        <Box sx={{ padding: theme.spacing(2), width: "100%" }}>
           {props.children}
         </Box>
       )}
