@@ -15,7 +15,8 @@ export default function MentContentBox(props) {
         <Box
           sx={{
             padding: theme.spacing(2),
-            width: "92%",
+            width: "100%",
+            margin: "auto",
             "&:hover": { backgroundColor: "divider", cursor: "pointer" },
           }}
           onClick={() => navigate("/ments/" + ment._id)}

@@ -84,9 +84,9 @@ export default function MentCard(props) {
 
   return (
     <Card sx={{ padding: 0 }} className="ment-card">
-      <Box className={preview}>
-        <HorizontalStack spacing={0} alignItems="initial">
-          <MentContentBox clickable={preview} ment={ment} editing={editing}>
+      <Box className={preview} >
+        <HorizontalStack spacing={0} alignItems="initial" >
+          <MentContentBox clickable={preview} ment={ment} editing={editing} >
             <HorizontalStack justifyContent="space-between">
               <ContentDetails
                 username={ment.author.username}
