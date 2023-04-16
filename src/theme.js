@@ -4,10 +4,13 @@ const theme = createTheme({
   palette: {
     mode:"dark",
     primary: grey,
-    divider: deepPurple[700],
+    // divider: "#fff",
+    divider: "#192731",
     background: {
-      default: deepPurple[900],
-      paper: deepPurple[900],
+      // default: "#00101b",
+      // paper: "#00090d",
+      default: "#000",
+      paper: "#00101b",
     },
     text: {
       primary: '#fff',
@@ -31,7 +34,7 @@ const theme = createTheme({
     },
     MuiContainer: {
       defaultProps: {
-        maxWidth: "xl",
+        maxWidth: "xl"        
       },
     },
   },

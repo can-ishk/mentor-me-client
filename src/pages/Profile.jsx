@@ -83,7 +83,7 @@ const ProfileView = () => {
   }
 
   return (
-    <Container>
+    <Container >
       <NavBar />
 
       <GridLayout
