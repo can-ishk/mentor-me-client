@@ -13,7 +13,7 @@ import {
 } from "@mui/material";
 import { Box } from "@mui/system";
 import Select from "react-select";
-import options from "./options";
+import options from "./options.js";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { createMent } from "../handlers/ments";
@@ -140,27 +140,30 @@ const MentEditor = () => {
 
           {/* Users Departement */}
           <FormControl fullWidth required margin="normal">
-            <InputLabel htmlFor="type">Insert your department name</InputLabel>
+            <InputLabel htmlFor="type">What are <b>your</b> top skills used in this project</InputLabel>
             <Select
               styles={styles}
               closeMenuOnSelect={false}
               // isMulti
               options={options}
-              defaultValue={options[0]}
+              // defaultValue={options[0]}
+              placeholder={''}
             />
           </FormControl>
           
 
           {/* Looking for people from which Departement */}
           <FormControl fullWidth required margin="normal">
-            <InputLabel htmlFor="type">You are finding people of which department?</InputLabel>
+            <InputLabel htmlFor="type">What skills does your project entail?</InputLabel>
             <Select
               styles={styles}
               closeMenuOnSelect={false}
               isMulti
+              placeholder={''}
               options={options}
-              defaultValue={options[0]}
+              // defaultValue={options[0]}
             /> 
+            
           </FormControl>
         
           <TextField
