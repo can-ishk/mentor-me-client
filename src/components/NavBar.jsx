@@ -11,7 +11,8 @@ import React, { useEffect, useState } from "react";
 import "react-icons/ai";
 import "react-icons/ri";
 import {
-    AiFillFileText,
+    AiOutlineBulb,
+    AiFillBulb,
     AiFillHome,
     AiFillMessage,
     AiOutlineSearch,
@@ -81,11 +82,16 @@ export default function NavBar() {
                 spacing={!mobile ? 2 : 0}
             >
                 <HorizontalStack>
-                    <AiFillFileText
+                    <AiFillBulb
                         size={33}
                         color={theme.palette.primary.main}
                         onClick={() => navigate("/")}
                     />
+                    {/* <AiOutlineBulb
+                        size={33}
+                        color={theme.palette.primary.main}
+                        onClick={() => navigate("/")}
+                    /> */}
                     <Typography
                         sx={{ display: mobile ? "none" : "block" }}
                         variant={navbarWidth ? "h6" : "h4"}

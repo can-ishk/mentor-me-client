@@ -12,7 +12,7 @@ import {
   Typography,
 } from "@mui/material";
 import { Box } from "@mui/system";
-import Select from "react-select";
+import { Select, OutlinedInput } from "@mui/material";
 import options from "./options.js";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -22,6 +22,7 @@ import { isLoggedIn, logOutUser } from "../helpers/authHelper";
 import HorizontalStack from "./util/HorizontalStack";
 import Avatar from "./Avatar";
 import { dishonourableLogout } from "../helpers/dishonourableLogoutHelper";
+import MultiSelectChip from "./util/MultiSelectChips.jsx";
 // import MultiValue from "react-select/dist/declarations/src/components/MultiValue";
 
 const styles = {
@@ -44,7 +45,6 @@ const styles = {
 };
 
 const options2 = [
-  { value: '', label: '' },
   { value: 'Looking for a teammate', label: 'Looking for a teammate' },
   { value: 'Seeking help regarding Higher Studies', label: 'Seeking help regarding Higher Studies' },
   { value: 'Seeking help regarding Industry', label: 'Seeking help regarding Industry' }
@@ -54,20 +54,16 @@ const options2 = [
 const MentEditor = () => {
   //new additions
   const [selected, setSelected] = useState([]);
-  const selectionChangeHandler = (event) => {
-    setSelected(event.target.value);
-  };
+  const [selected2, setSelected2] = useState([]);
   // --------
 
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
-  const [values, setValues] = useState({
-    type: '',
-  });
-  
+
   const [formData, setFormData] = useState({
     title: "",
     content: "",
+    type: ""
   });
 
   const [serverError, setServerError] = useState("");
@@ -76,6 +72,7 @@ const MentEditor = () => {
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+    console.log({ ...formData, selected, selected2 })
     const errors = validate();
     setErrors(errors);
   };
@@ -84,11 +81,11 @@ const MentEditor = () => {
     e.preventDefault();
 
     setLoading(true);
-    const data = await createMent(formData, isLoggedIn());
+    const data = await createMent({ ...formData, selected, selected2 }, isLoggedIn());
     setLoading(false);
     if (data && data.error) {
       setServerError(data.error);
-      dishonourableLogout({navigate});
+      dishonourableLogout({ navigate });
       console.log(data)
     } else {
       navigate("/ments/" + data._id);
@@ -119,53 +116,40 @@ const MentEditor = () => {
         </Typography>
 
         <Box component="form" onSubmit={handleSubmit}>
-          
-
-        {/* Type of Ment */}
-          <FormControl fullWidth required margin="dense">
-            <InputLabel htmlFor="type">Type of Ment</InputLabel>
-            <Select  
-                inputProps={{ id: 'type' }} 
-                isSearchable
-                styles={styles}
-                closeMenuOnSelect={false}
-                // isMulti
-                options={options2}
-                defaultValue={options2[0]}
-            />
-              {errors.type && (
-                <FormHelperText error>{errors.type}</FormHelperText>)}
-          </FormControl>
-          
-
-          {/* Users Departement */}
-          <FormControl fullWidth required margin="normal">
-            <InputLabel htmlFor="type">What are <b>your</b> top skills used in this project</InputLabel>
+          <FormControl fullWidth margin='normal'>
+            <InputLabel>Type of Ment</InputLabel>
             <Select
-              styles={styles}
-              closeMenuOnSelect={false}
-              // isMulti
-              options={options}
-              // defaultValue={options[0]}
-              placeholder={''}
+              fullWidth
+              label="Type of Ment"
+              input={<OutlinedInput id="select-multiple-chip" label="Type of Ment" />}
+              name="type"
+              margin="normal"
+              onChange={handleChange}
+              error={errors.content !== undefined}
+              children={
+                options2.map((option) => (
+                  <MenuItem value={option.value}>{option.label}</MenuItem>
+                ))
+              }
+              helperText={errors.content}
+              required
             />
           </FormControl>
-          
 
-          {/* Looking for people from which Departement */}
-          <FormControl fullWidth required margin="normal">
-            <InputLabel htmlFor="type">What skills does your project entail?</InputLabel>
-            <Select
-              styles={styles}
-              closeMenuOnSelect={false}
-              isMulti
-              placeholder={''}
-              options={options}
-              // defaultValue={options[0]}
-            /> 
-            
-          </FormControl>
-        
+          <MultiSelectChip
+            label="Which skills do you bring to the table?"
+            items={options}
+            getter={selected}
+            setter={setSelected}
+          />
+
+          <MultiSelectChip
+            label="Which skills does your project entail?"
+            items={options}
+            getter={selected2}
+            setter={setSelected2}
+          />
+
           <TextField
             fullWidth
             label="Title"
@@ -200,7 +184,7 @@ const MentEditor = () => {
           >
             {loading ? <>Submitting</> : <>Submit</>}
           </Button>
-          
+
         </Box>
       </Stack>
     </Card>
