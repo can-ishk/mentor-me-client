@@ -11,8 +11,7 @@ import Search from './pages/Search';
 import Profile from './pages/Profile';
 import SignUp from './pages/SignUp';
 import PrivateRoute from './components/PrivateRoute';
-import LogIn from './pages/LogIn';
-
+import Login from './pages/LogIn'
 
 function App() {
   return (
@@ -33,7 +32,7 @@ function App() {
           />
           <Route path="/search" element={<Search />} />
           <Route path="/users/:id" element={<Profile/>} />
-          <Route path="/logIn" element={<LogIn/>} />
+          <Route path="/logIn" element={<Login/>} />
           <Route path="/signup" element={<SignUp />} />
         </Routes>
       </BrowserRouter>

@@ -11,7 +11,7 @@ import { login } from "../handlers/users";
 import ErrorAlert from "../components/ErrorAlert";
 import { logInUser } from "../helpers/authHelper";
 
-export default function LogIn() {
+export default function Login() {
     const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
