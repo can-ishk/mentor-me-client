@@ -20,9 +20,7 @@ const ExploreView = () => {
       <NavBar />
       <GridLayout
         left={
-          <Scrollbars >
         <MentBrowser createMent contentType="ments" />
-          </Scrollbars>
       }
         right={<Sidebar />}
       />

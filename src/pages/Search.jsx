@@ -1,10 +1,12 @@
 import { Container, Stack, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import GoBack from "../components/GoBack";
+import {Scrollbars} from 'react-custom-scrollbars-2'
+
 import GridLayout from "../components/GridLayout";
 import NavBar from "../components/NavBar";
 import MentBrowser from "../components/MentBrowser";
 import Sidebar from "../components/Sidebar";
+
 
 const Search = () => {
   return (
