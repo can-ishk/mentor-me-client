@@ -13,6 +13,7 @@ import SignUp from './pages/SignUp';
 import PrivateRoute from './components/PrivateRoute';
 import LogIn from './pages/LogIn';
 
+
 function App() {
   return (
     <ThemeProvider theme={theme}>
