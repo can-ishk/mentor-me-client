@@ -173,6 +173,7 @@ const MentEditor = () => {
             helperText={errors.content}
             required
           />
+          
           <ErrorAlert error={serverError} />
           <Button
             variant="outlined"
