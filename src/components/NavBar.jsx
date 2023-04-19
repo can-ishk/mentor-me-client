@@ -5,6 +5,7 @@ import {
     TextField,
     Typography,
     Button,
+    FormControl
 } from "@mui/material";
 import { Box } from "@mui/system";
 import React, { useEffect, useState } from "react";
@@ -77,7 +78,7 @@ export default function NavBar() {
                 sx={{
                     pt: 2,
                     pb: 0,
-                    
+
                 }}
                 spacing={!mobile ? 2 : 0}
             >
@@ -106,11 +107,18 @@ export default function NavBar() {
 
                 {!navbarWidth && (
                     <Box component="form" onSubmit={handleSubmit}>
+
                         <TextField
                             size="small"
-                            label="Search"
-                            
-                            sx={{ flexGrow: 1, width: 600}}
+                            // label="Search"
+                            inputProps={{ style: { textAlign: 'center' } }}
+                            placeholder="What are you looking for?"
+                            sx={{
+                                flexGrow: 1, width: 600, '& fieldset': {
+                                    paddingLeft: (theme) => theme.spacing(2.5),
+                                    borderRadius: '20px',
+                                },
+                            }}
                             onChange={handleChange}
                             value={search}
                         />

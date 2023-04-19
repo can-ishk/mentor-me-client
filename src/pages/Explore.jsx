@@ -12,13 +12,16 @@ import MentCard from "../components/MentCard";
 import Sidebar from "../components/Sidebar";
 import HorizontalStack from "../components/util/HorizontalStack";
 import MentBrowser from "../components/MentBrowser";
+import { Scrollbars } from 'react-custom-scrollbars-2';
 
 const ExploreView = () => {
   return (
     <Container>
       <NavBar />
       <GridLayout
-        left={<MentBrowser createMent contentType="ments" />}
+        left={
+        <MentBrowser createMent contentType="ments" />
+      }
         right={<Sidebar />}
       />
     </Container>

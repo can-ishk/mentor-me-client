@@ -4,6 +4,8 @@ import { Box } from "@mui/system";
 import React, { useEffect, useState } from "react";
 import { MdSettingsInputAntenna } from "react-icons/md";
 import { useLocation, useSearchParams } from "react-router-dom";
+import { Scrollbars } from 'react-custom-scrollbars-2';
+
 import { getMents } from "../handlers/ments";
 import { isLoggedIn } from "../helpers/authHelper";
 import CreateMent from "./CreateMent";
@@ -115,7 +117,6 @@ const MentBrowser = (props) => {
             />
           </HorizontalStack>
         </Card>
-
         {searchExists && (
           <Box>
             <Typography variant="h5" gutterBottom>
@@ -127,14 +128,18 @@ const MentBrowser = (props) => {
           </Box>
         )}
 
-        {ments.map((ment, i) => (
-          <MentCard
-            preview="primary"
-            key={ment._id}
-            ment={ment}
-            removeMent={removeMent}
-          />
-        ))}
+        <Scrollbars autoHeight autoHeightMin={'780px'} >
+          {ments.map((ment, i) => (
+            <Box my={2}>
+              <MentCard
+                preview="primary"
+                key={ment._id}
+                ment={ment}
+                removeMent={removeMent}
+              />
+            </Box>
+          ))}
+        </Scrollbars>
 
         {loading && <Loading />}
         {end ? (
