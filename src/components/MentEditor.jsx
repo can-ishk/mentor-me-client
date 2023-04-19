@@ -85,7 +85,8 @@ const MentEditor = () => {
     setLoading(false);
     if (data && data.error) {
       setServerError(data.error);
-      dishonourableLogout({ navigate });
+      console.log(data.error, data.errorName)
+      dishonourableLogout( {navigate}, data.errorName, data.error );
       console.log(data)
     } else {
       navigate("/ments/" + data._id);

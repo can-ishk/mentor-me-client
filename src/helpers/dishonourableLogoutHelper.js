@@ -1,9 +1,18 @@
 import { logOutUser } from "./authHelper";
 
-export function dishonourableLogout({navigate}){
-    setTimeout(()=>{
-        console.log("Credential Tampering Detected, logging out")
-        logOutUser();
-        navigate('/login');
-      }, 2000);
+const errors = [
+  "TypeError",
+  "TokenExpiredError",
+  "JsonWebTokenError",
+  "NotBeforeError"
+]
+
+export function dishonourableLogout({ navigate }, errName, err) {
+  if (!errName || !(errName in errors)) return
+  setTimeout(() => {
+    console.log("Authentication Error, logging out")
+    console.log("Error: " + errName + " " + err)
+    logOutUser();
+    navigate('/login');
+  }, 2000);
 }

@@ -53,7 +53,7 @@ export default function MentCard(props) {
       setLoading(true);
       const data = await deleteMent(ment._id, isLoggedIn());
       if(data && data.error){
-        dishonourableLogout({navigate});
+        dishonourableLogout( {navigate}, data.errorName, data.error );
       }
       setLoading(false);
       if (preview) {
@@ -76,7 +76,7 @@ export default function MentCard(props) {
     const content = e.target.content.value;
     const data = await updateMent(ment._id, isLoggedIn(), { content });
     if (data && data.error) {
-      dishonourableLogout({navigate});
+      dishonourableLogout( {navigate}, data.errorName, data.error );
     }
     setMent({ ...ment, content, edited: true });
     setEditing(false);
