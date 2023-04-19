@@ -1,10 +1,9 @@
-import { Container, Stack, Typography } from "@mui/material";
-import React, { useEffect, useState } from "react";
-import {Scrollbars} from 'react-custom-scrollbars-2'
+import { Container, Stack } from "@mui/material";
+import React from "react";
 
 import GridLayout from "../components/GridLayout";
-import NavBar from "../components/NavBar";
 import MentBrowser from "../components/MentBrowser";
+import NavBar from "../components/NavBar";
 import Sidebar from "../components/Sidebar";
 
 

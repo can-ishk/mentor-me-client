@@ -12,8 +12,8 @@ import React, { useEffect, useState } from "react";
 import { AiFillEdit } from "react-icons/ai";
 import { MdCancel } from "react-icons/md";
 import { isLoggedIn } from "../helpers/authHelper";
-import ContentUpdateEditor from "./ContentUpdateEditor";
 import Avatar from "./Avatar";
+import ContentUpdateEditor from "./ContentUpdateEditor";
 import HorizontalStack from "./util/HorizontalStack";
 
 const MobileProfile = (props) => {

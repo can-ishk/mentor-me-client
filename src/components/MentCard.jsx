@@ -6,10 +6,10 @@ import {
 } from "@mui/material";
 import { Box } from "@mui/system";
 import React, { useState } from "react";
-import { AiFillCheckCircle, AiFillEdit, AiFillMessage } from "react-icons/ai";
+import { AiFillCheckCircle, AiFillEdit } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import { deleteMent, updateMent } from "../handlers/ments";
-import { isLoggedIn, logOutUser } from "../helpers/authHelper";
+import { isLoggedIn } from "../helpers/authHelper";
 import ContentDetails from "./ContentDetails";
 
 import MentContentBox from "./MentContentBox";
@@ -19,10 +19,10 @@ import { } from "react-icons/ai";
 import ContentUpdateEditor from "./ContentUpdateEditor";
 import Markdown from "./Markdown";
 
-import "./mentCard.css";
-import { MdCancel } from "react-icons/md";
 import { BiTrash } from "react-icons/bi";
+import { MdCancel } from "react-icons/md";
 import { dishonourableLogout } from "../helpers/dishonourableLogoutHelper";
+import "./mentCard.css";
 
 export default function MentCard(props) {
   const { preview, removeMent } = props;

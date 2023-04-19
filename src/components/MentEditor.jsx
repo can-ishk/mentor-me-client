@@ -1,27 +1,25 @@
 import {
   Button,
   Card,
-  Link,
-  Stack,
   FormControl,
-  MenuItem,
-  Chip,
-  FormHelperText,
   InputLabel,
+  MenuItem,
+  OutlinedInput,
+  Select,
+  Stack,
   TextField,
-  Typography,
+  Typography
 } from "@mui/material";
 import { Box } from "@mui/system";
-import { Select, OutlinedInput } from "@mui/material";
-import options from "./options.js";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { createMent } from "../handlers/ments";
-import ErrorAlert from "./ErrorAlert";
-import { isLoggedIn, logOutUser } from "../helpers/authHelper";
-import HorizontalStack from "./util/HorizontalStack";
-import Avatar from "./Avatar";
+import { isLoggedIn } from "../helpers/authHelper";
 import { dishonourableLogout } from "../helpers/dishonourableLogoutHelper";
+import Avatar from "./Avatar";
+import ErrorAlert from "./ErrorAlert";
+import options from "./options.js";
+import HorizontalStack from "./util/HorizontalStack";
 import MultiSelectChip from "./util/MultiSelectChips.jsx";
 // import MultiValue from "react-select/dist/declarations/src/components/MultiValue";
 

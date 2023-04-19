@@ -1,21 +1,21 @@
 import {
+    Box,
     Button,
     Container,
+    Link,
     Stack,
     TextField,
     Typography,
-    Link,
-    Box,
 } from '@mui/material';
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { isLength, isEmail, contains } from "validator";
+import { contains, isEmail, isLength } from "validator";
 
 import ErrorAlert from '../components/ErrorAlert';
 
+import Footer from '../components/Footer';
 import { signup } from "../handlers/users";
 import { logInUser } from "../helpers/authHelper";
-import Footer from '../components/Footer';
 
 
 

@@ -1,23 +1,21 @@
 import { useTheme } from "@emotion/react";
 import {
+    Button,
     IconButton,
     Stack,
     TextField,
-    Typography,
-    Button,
-    FormControl
+    Typography
 } from "@mui/material";
 import { Box } from "@mui/system";
 import React, { useEffect, useState } from "react";
 import "react-icons/ai";
-import "react-icons/ri";
 import {
-    AiOutlineBulb,
     AiFillBulb,
     AiFillHome,
     AiFillMessage,
-    AiOutlineSearch,
+    AiOutlineSearch
 } from "react-icons/ai";
+import "react-icons/ri";
 import { Link, useNavigate } from "react-router-dom";
 import { isLoggedIn, logOutUser } from "../helpers/authHelper";
 import Avatar from "./Avatar";

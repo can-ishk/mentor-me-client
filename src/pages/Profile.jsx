@@ -9,9 +9,9 @@ import FindUsers from "../components/FindUsers";
 import Footer from "../components/Footer";
 import GridLayout from "../components/GridLayout";
 import Loading from "../components/Loading";
+import MentBrowser from "../components/MentBrowser";
 import MobileProfile from "../components/MobileProfile";
 import NavBar from "../components/NavBar";
-import MentBrowser from "../components/MentBrowser";
 import ProfileCard from "../components/ProfileCard";
 import ProfileTabs from "../components/ProfileTabs";
 

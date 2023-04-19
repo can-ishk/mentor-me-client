@@ -1,12 +1,12 @@
 import { Card, Stack, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
+import "react-icons/md";
+import { MdLeaderboard } from "react-icons/md";
 import { getMents } from "../handlers/ments";
 import { isLoggedIn } from "../helpers/authHelper";
 import Loading from "./Loading";
 import MentCard from "./MentCard";
 import HorizontalStack from "./util/HorizontalStack";
-import "react-icons/md";
-import { MdLeaderboard } from "react-icons/md";
 
 const TopMents = () => {
   const [loading, setLoading] = useState(true);

@@ -9,10 +9,9 @@ import { Box } from "@mui/system";
 import React, { useEffect, useState } from "react";
 import { AiFillEdit } from "react-icons/ai";
 import { isLoggedIn } from "../helpers/authHelper";
-import ContentUpdateEditor from "./ContentUpdateEditor";
-import Footer from "./Footer";
-import Loading from "./Loading";
 import Avatar from "./Avatar";
+import ContentUpdateEditor from "./ContentUpdateEditor";
+import Loading from "./Loading";
 import HorizontalStack from "./util/HorizontalStack";
 
 export default function ProfileCard (props) {

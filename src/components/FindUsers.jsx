@@ -1,18 +1,18 @@
 import {
-    Card,
-    Divider,
-    IconButton,
-    Stack,
-    Typography,
-  } from "@mui/material";
-  import React, { useEffect, useState } from "react";
-  import { AiOutlineUser } from "react-icons/ai";
-  import { MdRefresh } from "react-icons/md";
-  import { Link } from "react-router-dom";
-  import { getRandomUsers } from "../handlers/users";
-  import Loading from "./Loading";
-  import Avatar from "./Avatar";
-  import HorizontalStack from "./util/HorizontalStack";
+  Card,
+  Divider,
+  IconButton,
+  Stack,
+  Typography,
+} from "@mui/material";
+import React, { useEffect, useState } from "react";
+import { AiOutlineUser } from "react-icons/ai";
+import { MdRefresh } from "react-icons/md";
+import { Link } from "react-router-dom";
+import { getRandomUsers } from "../handlers/users";
+import Avatar from "./Avatar";
+import Loading from "./Loading";
+import HorizontalStack from "./util/HorizontalStack";
   
   const FindUsers = () => {
     const [loading, setLoading] = useState(true);

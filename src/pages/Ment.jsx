@@ -1,14 +1,14 @@
 import { Container, Stack } from "@mui/material";
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import ErrorAlert from "../components/ErrorAlert";
 import GoBack from "../components/GoBack";
 import GridLayout from "../components/GridLayout";
 import Loading from "../components/Loading";
-import NavBar from "../components/NavBar";
 import MentCard from "../components/MentCard";
+import NavBar from "../components/NavBar";
 import Sidebar from "../components/Sidebar";
-import { useParams } from "react-router-dom";
 import { getMent } from "../handlers/ments";
-import ErrorAlert from "../components/ErrorAlert";
 import { isLoggedIn } from "../helpers/authHelper";
 
 const Ment = () => {

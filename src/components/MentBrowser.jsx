@@ -1,10 +1,8 @@
-import { Button, Card, Link, Stack, Typography } from "@mui/material";
-import { alignProperty } from "@mui/material/styles/cssUtils";
+import { Button, Card, Stack, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React, { useEffect, useState } from "react";
-import { MdSettingsInputAntenna } from "react-icons/md";
-import { useLocation, useSearchParams } from "react-router-dom";
 import { Scrollbars } from 'react-custom-scrollbars-2';
+import { useSearchParams } from "react-router-dom";
 
 import { getMents } from "../handlers/ments";
 import { isLoggedIn } from "../helpers/authHelper";

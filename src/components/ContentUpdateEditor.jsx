@@ -1,6 +1,5 @@
 import { Box, Button, Stack, TextField } from "@mui/material";
 import React, { useState } from "react";
-import { logOutUser } from "../helpers/authHelper";
 
 export default function ContentUpdateEditor(props){
   const [content, setContent] = useState(props.originalContent);
