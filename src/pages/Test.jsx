@@ -5,18 +5,17 @@ import NavBar from "../components/NavBar";
 import Profile from "../components/ProfileCard";
 import SignUp from "./SignUp";
 import MultiSelectChip from "../components/util/MultiSelectChips";
-import MDEditor, { selectWord } from "@uiw/react-md-editor";
+import MarkdownEditor from "../components/MarkdownEditor";
 import { useState } from "react";
-
 export default function Test() {
-    const [value, setValue] = useState("**Hello world!!!**");
+    const [content, setContent] = useState("")
     return (
         <div>
             {/* <NavBar/>    */}
             {/* <SignUp/> */}
             {/* <MultiSelectChip items={options}/> */}
+            <MarkdownEditor value={content} setValue={setContent} />
             {/* <Footer/> */}
-            <MDEditor height={200} value={value} onChange={setValue} />
             {/* <Loading/> */}
             {/* <Profile/> */}
         </div>

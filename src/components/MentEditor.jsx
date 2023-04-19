@@ -23,6 +23,7 @@ import HorizontalStack from "./util/HorizontalStack";
 import Avatar from "./Avatar";
 import { dishonourableLogout } from "../helpers/dishonourableLogoutHelper";
 import MultiSelectChip from "./util/MultiSelectChips.jsx";
+import MarkdownEditor from "./MarkdownEditor.jsx";
 // import MultiValue from "react-select/dist/declarations/src/components/MultiValue";
 
 const styles = {
@@ -173,7 +174,7 @@ const MentEditor = () => {
             helperText={errors.content}
             required
           />
-          
+          <MarkdownEditor />
           <ErrorAlert error={serverError} />
           <Button
             variant="outlined"
