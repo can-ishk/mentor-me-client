@@ -1,0 +1,15 @@
+.rti--container {
+    width: 200px;
+    --rti-bg: #192731 !important;
+    --rti-border: #626262;
+  }
+  
+  .rti--tag {
+    background-color:#00101b;
+    border-radius: 10px;
+  }
+  
+  .rti--input{
+    background-color: transparent;
+    color: white;
+  }
