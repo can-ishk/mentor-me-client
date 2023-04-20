@@ -38,12 +38,19 @@ const ProfileView = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     const content = e.target.content.value;
+    console.log("submittin", content)
+    if(!Array.isArray(content)){
+      await updateUser(user, { biography: content }) 
+      setProfile({ ...profile, user: { ...profile.user, biography: content } });
 
-    await updateUser(user, { biography: content });
+    }
+    else{
+      await updateUser(user, { tags: content })
+      setProfile({ ...profile, user: { ...profile.user, tags: content } });
+    }
+    // !Array.isArray(content) ? await updateUser(user, { biography: content }) : await updateUser(user, { tags: content });
 
-    setProfile({ ...profile, user: { ...profile.user, biography: content } });
     setEditing(false);
   };
 

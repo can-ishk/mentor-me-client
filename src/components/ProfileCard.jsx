@@ -13,8 +13,10 @@ import Avatar from "./Avatar";
 import ContentUpdateEditor from "./ContentUpdateEditor";
 import Loading from "./Loading";
 import HorizontalStack from "./util/HorizontalStack";
+import TagUpdateProfile from "./TagUpdateProfile";
+import Chip from '@mui/material/Chip';
 
-export default function ProfileCard (props) {
+export default function ProfileCard(props) {
   const [user, setUser] = useState(null);
   const currentUser = isLoggedIn();
   const theme = useTheme();
@@ -23,6 +25,8 @@ export default function ProfileCard (props) {
   useEffect(() => {
     if (props.profile) {
       setUser(props.profile.user);
+      console.log(props.profile.user)
+      // user.tags && console.log(user.tags)
     }
   }, [props.profile]);
 
@@ -38,11 +42,13 @@ export default function ProfileCard (props) {
 
           {props.editing ? (
             <Box>
+              <TagUpdateProfile handleSubmit={props.handleSubmit} />
               <ContentUpdateEditor
                 handleSubmit={props.handleSubmit}
                 originalContent={user.biography}
                 validate={props.validate}
               />
+
             </Box>
           ) : user.biography ? (
             <Typography textAlign="center" variant="p">
@@ -53,14 +59,32 @@ export default function ProfileCard (props) {
             <Typography variant="p">
               <i>No bio yet</i>
             </Typography>
-          )}
+          )
+          
+          }
+          <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
 
+          {
+            (user.tags && user.tags.length>0)?
+            ( 
+              user.tags.map((tag) => {
+                console.log(user.tags)
+              return(
+                <Chip key={tag} label={tag} />
+            )}))
+            
+            :
+            (<Typography variant="p">
+              <i>No tags yet</i>
+            </Typography>)
+          }
+          </Box>
           {currentUser && user._id === currentUser.userId && (
             <Box>
               <Button
                 startIcon={<AiFillEdit color={iconColor} />}
                 onClick={props.handleEditing}
-              >
+                >
                 {props.editing ? <>Cancel</> : <>Edit bio</>}
               </Button>
             </Box>
