@@ -52,7 +52,7 @@ export default function ProfileCard(props) {
             </Box>
           ) : user.biography ? (
             <Typography textAlign="center" variant="p">
-              <b>Bio: </b>
+              {/* <b>Bio: </b> */}
               {user.biography}
             </Typography>
           ) : (
