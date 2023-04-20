@@ -5,6 +5,7 @@ import {
     Stack,
     TextField,
     Typography,
+    MenuItem
 } from '@mui/material';
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -15,7 +16,7 @@ import ErrorAlert from '../components/ErrorAlert';
 import Footer from '../components/Footer';
 import { signup } from "../handlers/users";
 import { logInUser } from "../helpers/authHelper";
-
+import options from '../data/options.js'
 
 
 
@@ -130,6 +131,10 @@ export default function SignUp() {
                     <TextField
                         label="Department"
                         fullWidth
+                        select={true}
+                        SelectProps={{
+
+                        }}
                         margin="normal"
                         autoFocus
                         required
@@ -138,7 +143,11 @@ export default function SignUp() {
                         onChange={handleChange}
                         error={errors.dept !== undefined}
                         helperText={errors.dept}
-                    />
+                    >
+                        {options.map((option) => (
+                            <MenuItem value={option.value}>{option.label}</MenuItem>
+                        ))}
+                    </TextField>
                     <TextField
                         label="Password"
                         fullWidth
@@ -161,7 +170,7 @@ export default function SignUp() {
           <Copyright />
         </Box> */}
             </Stack>
-            <Footer/>
+            <Footer />
         </Container>
     )
 

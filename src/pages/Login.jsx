@@ -81,8 +81,8 @@ export default function Login() {
                     </Button>
                 </Box>
                 <Box sx={{ mt: 3 }}>
-                    <Card variant="outlined" sx={{ padding: '0.25rem', }}>
-                        <Typography variant="subtitle" color="text.secondary">
+                    <Card variant="outlined" sx={{ padding: '0.5rem' }}>
+                        <Typography variant="subtitle" color="text.secondary" textAlign={'center'}>
                             Copyright © 2023 {' '}
                             <Link to="/" color="inherit">
                                 MentorMe
