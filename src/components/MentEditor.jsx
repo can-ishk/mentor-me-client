@@ -18,7 +18,7 @@ import { isLoggedIn } from "../helpers/authHelper";
 import { dishonourableLogout } from "../helpers/dishonourableLogoutHelper";
 import Avatar from "./Avatar";
 import ErrorAlert from "./ErrorAlert";
-import options from "./options.js";
+import options from "../data/options.js";
 import HorizontalStack from "./util/HorizontalStack";
 import MultiSelectChip from "./util/MultiSelectChips.jsx";
 // import MultiValue from "react-select/dist/declarations/src/components/MultiValue";

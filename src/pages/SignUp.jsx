@@ -2,13 +2,12 @@ import {
     Box,
     Button,
     Container,
-    Link,
     Stack,
     TextField,
     Typography,
 } from '@mui/material';
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { contains, isEmail, isLength } from "validator";
 
 import ErrorAlert from '../components/ErrorAlert';

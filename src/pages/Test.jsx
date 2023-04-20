@@ -5,7 +5,7 @@ import NavBar from "../components/NavBar";
 import Profile from "../components/ProfileCard";
 import SignUp from "./SignUp";
 import MultiSelectChip from "../components/util/MultiSelectChips";
-import options from "../components/options";
+import options from "../data/options.js";
 
 export default function Test() {
     console.log(options)
