@@ -1,6 +1,6 @@
 {
     "skills":[
-        {"id": "1", "skillName":"HTML"},
+        {"id": "1", "skillName": "HTML"},
         {"id": "2", "skillName":"CSS"},
         {"id": "3", "skillName":"JavaScript"},
         {"id": "4", "skillName":"UI/UX Design"},
