@@ -126,6 +126,7 @@ const MentBrowser = (props) => {
           </Box>
         )}
 
+          {loading && <Loading />}
         <Scrollbars autoHeight autoHeightMin={'780px'} >
           {ments.map((ment, i) => (
             <Box my={2}>
@@ -139,7 +140,6 @@ const MentBrowser = (props) => {
           ))}
         </Scrollbars>
 
-        {loading && <Loading />}
         {end ? (
           <Stack py={5} alignItems="center">
             <Typography variant="h5" color="text.secondary" gutterBottom>
