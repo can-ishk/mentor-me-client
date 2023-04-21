@@ -19,6 +19,8 @@ const ProfileView = () => {
   const [loading, setLoading] = useState(true);
   const [profile, setProfile] = useState(null);
   const [editing, setEditing] = useState(false);
+  const [selected, setSelected] = useState();
+
   const [tab, setTab] = useState("ments");
   const user = isLoggedIn();
   const [error, setError] = useState("");
@@ -39,18 +41,15 @@ const ProfileView = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const content = e.target.content.value;
+    const tags = selected;
     console.log("submittin", content)
-    if(!Array.isArray(content)){
-      await updateUser(user, { biography: content }) 
-      setProfile({ ...profile, user: { ...profile.user, biography: content } });
-
-    }
-    else{
-      await updateUser(user, { tags: content })
-      setProfile({ ...profile, user: { ...profile.user, tags: content } });
-    }
-    // !Array.isArray(content) ? await updateUser(user, { biography: content }) : await updateUser(user, { tags: content });
-
+    console.log(profile.user)
+    // if(!Array.isArray(content)){
+    //   await updateUser(user, { biography: content }) 
+    //   setProfile({ ...profile, user: { ...profile.user, biography: content } });
+    // }
+    await updateUser(user, { biography: content, tags:tags })
+    setProfile({ ...profile, user: { ...profile.user, biography: content, tags:tags } });
     setEditing(false);
   };
 
@@ -127,6 +126,8 @@ const ProfileView = () => {
               handleEditing={handleEditing}
               handleMessage={handleMessage}
               validate={validate}
+              setSelected={setSelected}
+              selected={selected}
             />
 
             <FindUsers />

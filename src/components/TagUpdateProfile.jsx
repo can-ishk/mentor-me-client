@@ -3,14 +3,14 @@ import { Box } from "@mui/material";
 import { TagsInput } from "react-tag-input-component";
 import "./tags.css";
 
-export default function TagUpdateProfile({handleSubmit}){
-  const [selected, setSelected] = useState([]);
+export default function TagUpdateProfile(props){
+  
 
   return (
-    <Box component={'form'} onSubmit = {handleSubmit}>
+    <Box>
       <TagsInput
-        value={selected}
-        onChange={setSelected}
+        value={props.get}
+        onChange={props.set}
         name="tags"
         placeHolder="Add a tag!"
       />

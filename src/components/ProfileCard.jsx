@@ -13,8 +13,9 @@ import Avatar from "./Avatar";
 import ContentUpdateEditor from "./ContentUpdateEditor";
 import Loading from "./Loading";
 import HorizontalStack from "./util/HorizontalStack";
-import TagUpdateProfile from "./TagUpdateProfile";
 import Chip from '@mui/material/Chip';
+import options from "../data/options.js";
+import MultiSelectChip from "./util/MultiSelectChips.jsx";
 
 export default function ProfileCard(props) {
   const [user, setUser] = useState(null);
@@ -25,7 +26,8 @@ export default function ProfileCard(props) {
   useEffect(() => {
     if (props.profile) {
       setUser(props.profile.user);
-      console.log(props.profile.user)
+      props.setSelected(props.profile.user.tags)
+      // console.log(props.profile.user)
       // user.tags && console.log(user.tags)
     }
   }, [props.profile]);
@@ -39,14 +41,19 @@ export default function ProfileCard(props) {
           </Box>
 
           <Typography variant="h5">{user.username}</Typography>
-
           {props.editing ? (
             <Box>
-              <TagUpdateProfile handleSubmit={props.handleSubmit} />
+
               <ContentUpdateEditor
                 handleSubmit={props.handleSubmit}
                 originalContent={user.biography}
                 validate={props.validate}
+                tags={<MultiSelectChip
+                  label="Which skills do you bring to the table?"
+                  items={options}
+                  getter={props.selected}
+                  setter={props.setSelected}
+                />}
               />
 
             </Box>
@@ -60,31 +67,34 @@ export default function ProfileCard(props) {
               <i>No bio yet</i>
             </Typography>
           )
-          
+
           }
           <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
 
-          {
-            (user.tags && user.tags.length>0)?
-            ( 
-              user.tags.map((tag) => {
-                console.log(user.tags)
-              return(
-                <Chip key={tag} label={tag} />
-            )}))
-            
-            :
-            (<Typography variant="p">
-              <i>No tags yet</i>
-            </Typography>)
-          }
+            {
+              !props.editing ? (
+                (user.tags && user.tags[0]) ?
+                  (
+                    user.tags.map((tag, i) => {
+                      return (
+                        <Chip key={i} label={tag} />
+                      )
+                    })
+                  )
+
+                  :
+                  (<Typography variant="p">
+                    <i>No tags yet</i>
+                  </Typography>)
+              ) : ""
+            }
           </Box>
           {currentUser && user._id === currentUser.userId && (
             <Box>
               <Button
                 startIcon={<AiFillEdit color={iconColor} />}
                 onClick={props.handleEditing}
-                >
+              >
                 {props.editing ? <>Cancel</> : <>Edit bio</>}
               </Button>
             </Box>

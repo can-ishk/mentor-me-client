@@ -3,6 +3,7 @@ import React, { useState } from "react";
 
 export default function ContentUpdateEditor(props){
   const [content, setContent] = useState(props.originalContent);
+  const [selected, setSelected] = useState(props.originalSelected)
   const [error, setError] = useState("");
 
   const handleChange = (e) => {
@@ -40,6 +41,7 @@ export default function ContentUpdateEditor(props){
           helperText={error}
           multiline
         />
+        {props.tags}
         <Button
           type="submit"
           variant="outlined"

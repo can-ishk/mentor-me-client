@@ -25,6 +25,7 @@ const theme = createTheme({
       styleOverrides: {
         root: ({ ownerState, theme }) => ({
           ...{
+            maxWidth: '98vw',
             padding: theme.spacing(2),
             borderWidth: "1.5px",
             borderRadius: 10

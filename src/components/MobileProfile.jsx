@@ -29,7 +29,7 @@ const MobileProfile = (props) => {
   }, [props.profile]);
 
   return (
-    <Card sx={{ display: { sm: "block", md: "none" }, mb: 2 }}>
+    <Card sx={{ display: { sm: "block", md: "none" }, mb: 2,}}>
       {user ? (
         <Stack spacing={2}>
           <HorizontalStack spacing={2} justifyContent="space-between">
