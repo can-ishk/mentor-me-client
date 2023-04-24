@@ -32,7 +32,8 @@ export default function MentCard(props) {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const user = isLoggedIn();
-  const isAuthor = user && user.username === mentData.author.username;
+  console.log("HIU", mentData)
+  const isAuthor = mentData.author?(user && user.username === mentData.author.username):false;
   const theme = useTheme();
   const iconColor = theme.palette.primary.main;
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
@@ -56,8 +57,8 @@ export default function MentCard(props) {
     } else {
       setLoading(true);
       const data = await deleteMent(ment._id, isLoggedIn());
-      if(data && data.error){
-        dishonourableLogout( {navigate}, data.errorName, data.error );
+      if (data && data.error) {
+        dishonourableLogout({ navigate }, data.errorName, data.error);
       }
       setLoading(false);
       if (preview) {
@@ -80,7 +81,7 @@ export default function MentCard(props) {
     const content = e.target.content.value;
     const data = await updateMent(ment._id, isLoggedIn(), { content });
     if (data && data.error) {
-      dishonourableLogout( {navigate}, data.errorName, data.error );
+      dishonourableLogout({ navigate }, data.errorName, data.error);
     }
     setMent({ ...ment, content, edited: true });
     setEditing(false);
@@ -93,7 +94,7 @@ export default function MentCard(props) {
           <MentContentBox clickable={preview} ment={ment} editing={editing}>
             <HorizontalStack justifyContent="space-between" >
               <ContentDetails
-                username={ment.author.username}
+                username={ment.author? ment.author.username:"deleted"}
                 type={ment.type}
                 createdAt={ment.createdAt}
                 edited={ment.edited}
@@ -137,12 +138,12 @@ export default function MentCard(props) {
             >
               {ment.title}
             </Typography>
-            <Box display={isMobile?'none':'flex'} justifyContent={'flex-start'} >
+            <Box display={isMobile ? 'none' : 'flex'} justifyContent={'flex-start'} >
               {ment.tags && ment.tags.map((tag) => (
-                <Chip label={tag} sx={{mx: 0.5}}/>
+                <Chip label={tag} sx={{ mx: 0.5 }} />
               ))}
               {ment.projectTags && ment.projectTags.map((tag) => (
-                <Chip label={tag} sx={{mx: 0.5}}/>
+                <Chip label={tag} sx={{ mx: 0.5 }} />
               ))}
             </Box>
             {preview !== "secondary" &&
