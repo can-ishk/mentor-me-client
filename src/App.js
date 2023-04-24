@@ -17,29 +17,29 @@ import Chat from './pages/Chat';
 function App() {
   return (
     <ThemeProvider theme={theme}>
+      <CssBaseline />
       <BrowserRouter>
-        <CssBaseline/>
         <Routes>
-          <Route path="/test" element={<Test/>} />
+          <Route path="/test" element={<Test />} />
           <Route path="/" element={<Explore />} />
           <Route path="/ments/:id" element={<Ment />} />
           <Route
             path="/ments/create"
             element={
               <PrivateRoute>
-                <CreateMent/>
+                <CreateMent />
               </PrivateRoute>
             }
           />
           <Route path="/search" element={<Search />} />
-          <Route path="/users/:id" element={<Profile/>} />
-          <Route path="/logIn" element={<Login/>} />
+          <Route path="/users/:id" element={<Profile />} />
+          <Route path="/logIn" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/chat" element={<Chat />} />
         </Routes>
       </BrowserRouter>
-      
-      
+
+
     </ThemeProvider>
   );
 }

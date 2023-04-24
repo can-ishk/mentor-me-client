@@ -62,7 +62,7 @@ import HorizontalStack from "./util/HorizontalStack";
                   <Avatar width={30} height={30} username={user.username} />
                   <Typography>{user.username}</Typography>
                 </HorizontalStack>
-                <Link to={"/users/" + user.username}>View</Link>
+                <Link reloadDocument to={"/users/" + user.username} >View</Link>
               </HorizontalStack>
             ))
           )}
