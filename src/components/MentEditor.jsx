@@ -43,9 +43,9 @@ const styles = {
 };
 
 const options2 = [
-  { value: 'Looking for a teammate', label: 'Looking for a teammate' },
-  { value: 'Seeking help regarding Higher Studies', label: 'Seeking help regarding Higher Studies' },
-  { value: 'Seeking help regarding Industry', label: 'Seeking help regarding Industry' }
+  { value: 'looking for a teammate', label: 'Looking for a teammate' },
+  { value: 'seeking help regarding higher studies', label: 'Seeking help regarding Higher Studies' },
+  { value: 'seeking help regarding industry', label: 'Seeking help regarding Industry' }
 ];
 
 

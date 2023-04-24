@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import Avatar from "./Avatar";
 import HorizontalStack from "./util/HorizontalStack";
 
-const ContentDetails = ({ username, createdAt, edited, preview }) => {
+const ContentDetails = ({ username, type, createdAt, edited, preview }) => {
   return (
     <HorizontalStack sx={{}}>
       <Avatar width={30} height={30} username={username} />
@@ -20,6 +20,7 @@ const ContentDetails = ({ username, createdAt, edited, preview }) => {
         >
           {username}
         </Link>
+        {type && (" is "+ type)}
         {!preview && (
           <>
             {" "}

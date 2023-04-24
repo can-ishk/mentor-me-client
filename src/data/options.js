@@ -1,5 +1,5 @@
 const options = [
-    { value: "Computer Science and Engineering", label: "Computer Science and Engineering" },
+    { value: "Computer Science & Engineering", label: "Computer Science & Engineering" },
     { value: "Chemical Engineering", label: "Chemical Engineering" },
     { value: "Civil Engineering", label: "Civil Engineering" },
     { value: "Electrical Engineering", label: "Electrical Engineering" },

@@ -35,14 +35,13 @@ export default function MentCard(props) {
   const isAuthor = user && user.username === mentData.author.username;
   const theme = useTheme();
   const iconColor = theme.palette.primary.main;
-  
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   const [editing, setEditing] = useState(false);
   const [confirm, setConfirm] = useState(false);
   const [ment, setMent] = useState(mentData);
 
-  console.log(ment)
+  console.log("AAAAAAAAAA", ment, ment.title, ment.type)
 
   let maxHeight = null;
   if (preview === "primary") {
@@ -95,6 +94,7 @@ export default function MentCard(props) {
             <HorizontalStack justifyContent="space-between" >
               <ContentDetails
                 username={ment.author.username}
+                type={ment.type}
                 createdAt={ment.createdAt}
                 edited={ment.edited}
                 preview={preview === "secondary"}

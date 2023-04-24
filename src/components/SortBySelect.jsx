@@ -13,7 +13,6 @@ const SortBySelect = ({ onSortBy, sortBy, sorts }) => {
       <Select
         size="small"
         value={sorts[sortBy]}
-        sx={{ minWidth: 150 }}
         onChange={onSortBy}
         autoWidth
         label={"Sort by:"}
