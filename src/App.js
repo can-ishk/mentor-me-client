@@ -20,7 +20,6 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <BrowserRouter>
-      <NavBar/>
         <Routes>
           <Route path="/test" element={<Test />} />
           <Route path="/" element={<Explore />} />

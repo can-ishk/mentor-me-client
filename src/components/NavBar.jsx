@@ -65,8 +65,7 @@ export default function NavBar() {
     return (
         <Stack mb={2} sx={{
             // backgroundColor: '#161b22',
-            paddingX: 2
-            // marginLeft: 'auto'
+            // paddingX: 2
         }}>
             <Stack
                 direction="row"

@@ -9,6 +9,7 @@ import MentCard from "../components/MentCard";
 import Sidebar from "../components/Sidebar";
 import { getMent } from "../handlers/ments";
 import { isLoggedIn } from "../helpers/authHelper";
+import NavBar from "../components/NavBar";
 
 const Ment = () => {
   const params = useParams();
@@ -35,6 +36,7 @@ const Ment = () => {
 
   return (
     <Container>
+      <NavBar/>
       <GoBack />
       <GridLayout
         left={

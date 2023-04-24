@@ -13,6 +13,7 @@ import MentBrowser from "../components/MentBrowser";
 import MobileProfile from "../components/MobileProfile";
 import ProfileCard from "../components/ProfileCard";
 import ProfileTabs from "../components/ProfileTabs";
+import NavBar from "../components/NavBar";
 
 const ProfileView = () => {
   const [loading, setLoading] = useState(true);
@@ -91,6 +92,7 @@ const ProfileView = () => {
 
   return (
     <Container >
+      <NavBar/>
       <GridLayout
         left={
           <>
