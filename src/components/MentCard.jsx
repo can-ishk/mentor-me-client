@@ -135,12 +135,12 @@ export default function MentCard(props) {
             >
               {ment.title}
             </Typography>
-            <Box display={isMobile ? 'none' : 'flex'} justifyContent={'flex-start'} >
+            <Box display={isMobile ? 'none' : 'flex'} justifyContent={'flex-start'} marginBottom={1} >
               {ment.tags && ment.tags.map((tag, i) => (
-                <Chip label={tag} sx={{ mx: 0.5 }} key={i} />
+                <Chip label={tag} sx={{ mr: 1 }} key={i} />
               ))}
               {ment.projectTags && ment.projectTags.map((tag, i) => (
-                <Chip label={tag} sx={{ mx: 0.5 }} key={i} />
+                <Chip label={tag} sx={{ mr: 1 }} key={i} />
               ))}
             </Box>
             {preview !== "secondary" &&

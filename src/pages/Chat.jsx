@@ -63,7 +63,6 @@ const Chat = () => {
 
   return (
     <Container>
-      <NavBar />
       <Box>
         <Card sx={{ padding: 0 }}>
           <Grid

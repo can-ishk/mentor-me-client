@@ -32,7 +32,6 @@ export default function NavBar() {
 
     useEffect(() => {
         updateDimensions();
-
         window.addEventListener("resize", updateDimensions);
         return () => window.removeEventListener("resize", updateDimensions);
     }, []);
@@ -66,7 +65,7 @@ export default function NavBar() {
     return (
         <Stack mb={2} sx={{
             // backgroundColor: '#161b22',
-            // width: '100%',
+            paddingX: 2
             // marginLeft: 'auto'
         }}>
             <Stack
@@ -138,9 +137,23 @@ export default function NavBar() {
                             <IconButton component={Link} to={"/chat"}>
                                 <AiFillMessage />
                             </IconButton>
-                            <IconButton component={Link} to={"/users/" + username}>
-                                <Avatar width={30} height={30} username={user.username} />
-                            </IconButton>
+                            {(window.location.href.split('/')[3]==="users"&&window.location.href.split('/')[4]!==user.username) ? (
+                                <IconButton
+                                    component={Link}
+                                    to={"/users/" + username}
+                                    reloadDocument
+                                >
+                                    <Avatar width={30} height={30} username={user.username} />
+                                </IconButton>
+                            ) : (
+                                <IconButton
+                                    component={Link}
+                                    to={"/users/" + username}
+                                >
+                                    <Avatar width={30} height={30} username={user.username} />
+                                </IconButton>
+                            )}
+
                             <Button onClick={handleLogout}>Logout</Button>
                         </>
                     ) : (

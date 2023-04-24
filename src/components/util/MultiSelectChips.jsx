@@ -55,7 +55,7 @@ export default function MultiSelectChip({ label, items, getter, setter }) {
                     renderInput={(params) => (
                         <TextField
                             {...params}
-                            label="Skills"
+                            label={label}
                             placeholder="Enter Skill"
                         />
                     )}
