@@ -13,12 +13,14 @@ import SignUp from './pages/SignUp';
 import PrivateRoute from './components/PrivateRoute';
 import Login from './pages/LogIn'
 import Chat from './pages/Chat';
+import NavBar from './components/NavBar';
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <BrowserRouter>
+      <NavBar/>
         <Routes>
           <Route path="/test" element={<Test />} />
           <Route path="/" element={<Explore />} />

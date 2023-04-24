@@ -46,7 +46,7 @@ const MentBrowser = (props) => {
       data = await getMents(user && user.token, query);
     }
 
-    if (data.data.length < 10) {
+    if (data.data && data.data.length < 10) {
       setEnd(true);
     }
 
@@ -126,20 +126,21 @@ const MentBrowser = (props) => {
           </Box>
         )}
 
-          {loading && <Loading />}
-        <Scrollbars autoHeight autoHeightMin={'780px'} >
-          {ments.map((ment, i) => (
-            <Box my={2} key={i}>
-              <MentCard
-                preview="primary"
-                key={ment._id}
-                ment={ment}
-                removeMent={removeMent}
-              />
-            </Box>
-          ))}
-        </Scrollbars>
-
+        {loading && <Loading />}
+        {ments.length > 0 &&
+          <Scrollbars autoHeight autoHeightMin={'780px'} >
+            {ments.map((ment, i) => (
+              <Box my={2} key={i}>
+                <MentCard
+                  preview="primary"
+                  key={ment._id}
+                  ment={ment}
+                  removeMent={removeMent}
+                />
+              </Box>
+            ))}
+          </Scrollbars>
+        }
         {end ? (
           <Stack py={5} alignItems="center">
             <Typography variant="h5" color="text.secondary" gutterBottom>

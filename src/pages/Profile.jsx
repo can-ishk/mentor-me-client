@@ -11,7 +11,6 @@ import GridLayout from "../components/GridLayout";
 import Loading from "../components/Loading";
 import MentBrowser from "../components/MentBrowser";
 import MobileProfile from "../components/MobileProfile";
-import NavBar from "../components/NavBar";
 import ProfileCard from "../components/ProfileCard";
 import ProfileTabs from "../components/ProfileTabs";
 
@@ -92,8 +91,6 @@ const ProfileView = () => {
 
   return (
     <Container >
-      <NavBar />
-
       <GridLayout
         left={
           <>

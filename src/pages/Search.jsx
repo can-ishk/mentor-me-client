@@ -3,14 +3,12 @@ import React from "react";
 
 import GridLayout from "../components/GridLayout";
 import MentBrowser from "../components/MentBrowser";
-import NavBar from "../components/NavBar";
 import Sidebar from "../components/Sidebar";
 
 
 const Search = () => {
   return (
     <Container>
-      <NavBar />
       <GridLayout
         left={
           <Stack spacing={2}>

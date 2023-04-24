@@ -75,13 +75,14 @@ export default function ProfileCard(props) {
               !props.editing ? (
                 (user.tags && user.tags[0]) ?
                   (
-                    user.tags.map((tag, i) => {
+                    <Box display={'flex'} flexWrap={'wrap'} padding={'auto'} justifyContent={'center'} >
+                    {user.tags.map((tag, i) => {
                       return (
-                        <Chip key={i} label={tag} />
+                        <Chip key={i} label={tag} sx={{margin:0.5}}/>
                       )
-                    })
+                    })}
+                    </Box>
                   )
-
                   :
                   (<Typography variant="p">
                     <i>No tags yet</i>
