@@ -4,6 +4,7 @@ import {
   IconButton,
   Typography,
   useTheme,
+  useMediaQuery
 } from "@mui/material";
 import { Box } from "@mui/system";
 import React, { useState } from "react";
@@ -32,9 +33,10 @@ export default function MentCard(props) {
   const navigate = useNavigate();
   const user = isLoggedIn();
   const isAuthor = user && user.username === mentData.author.username;
-
   const theme = useTheme();
   const iconColor = theme.palette.primary.main;
+  
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   const [editing, setEditing] = useState(false);
   const [confirm, setConfirm] = useState(false);
@@ -135,12 +137,12 @@ export default function MentCard(props) {
             >
               {ment.title}
             </Typography>
-            <Box>
+            <Box display={isMobile?'none':'flex'} justifyContent={'flex-start'} >
               {ment.tags && ment.tags.map((tag) => (
-                <Chip label={tag} />
+                <Chip label={tag} sx={{mx: 0.5}}/>
               ))}
               {ment.projectTags && ment.projectTags.map((tag) => (
-                <Chip label={tag}/>
+                <Chip label={tag} sx={{mx: 0.5}}/>
               ))}
             </Box>
             {preview !== "secondary" &&
