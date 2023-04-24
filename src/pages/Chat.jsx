@@ -2,10 +2,10 @@ import { Card, Grid } from "@mui/material";
 import { Box, Container } from "@mui/system";
 import React, { useEffect, useState } from "react";
 import Messages from "../components/Messages";
-import Navbar from "../components/Navbar";
+import NavBar from "../components/NavBar";
 import UserMessengerEntries from "../components/UserMessengerEntries";
-import { getConversations } from "../handlers/chats";
-import { isLoggedIn } from "../../helpers/authHelper";
+import { getChats } from "../handlers/chats";
+import { isLoggedIn } from "../helpers/authHelper";
 import { useLocation } from "react-router-dom";
 
 const Chat = () => {
@@ -28,7 +28,7 @@ const Chat = () => {
   };
 
   const fetchConversations = async () => {
-    let conversations = await getConversations(user);
+    let conversations = await getChats(user);
     if (newConservant) {
       setConservant(newConservant);
       if (!getConversation(conversations, newConservant._id)) {
@@ -63,7 +63,7 @@ const Chat = () => {
 
   return (
     <Container>
-      <Navbar />
+      <NavBar />
       <Box>
         <Card sx={{ padding: 0 }}>
           <Grid

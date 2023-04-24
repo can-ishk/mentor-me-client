@@ -58,7 +58,7 @@ const ProfileView = () => {
   };
 
   const handleMessage = () => {
-    navigate("/messenger", { state: { user: profile.user } });
+    navigate("/chat", { state: { user: profile.user } });
   };
 
   useEffect(() => {

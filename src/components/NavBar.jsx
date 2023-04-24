@@ -135,7 +135,7 @@ export default function NavBar() {
                     </IconButton>
                     {user ? (
                         <>
-                            <IconButton component={Link} to={"/messenger"}>
+                            <IconButton component={Link} to={"/chat"}>
                                 <AiFillMessage />
                             </IconButton>
                             <IconButton component={Link} to={"/users/" + username}>
