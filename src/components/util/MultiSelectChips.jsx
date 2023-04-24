@@ -42,7 +42,7 @@ export default function MultiSelectChip({ label, items, getter, setter }) {
     };
 
     return (
-        <div>
+        <Box marginTop={1}>
                 <Autocomplete
                     multiple
                     options={items}
@@ -60,6 +60,6 @@ export default function MultiSelectChip({ label, items, getter, setter }) {
                         />
                     )}
                 />
-        </div>
+        </Box>
     );
 }

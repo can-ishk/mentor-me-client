@@ -48,8 +48,10 @@ const ProfileView = () => {
     //   await updateUser(user, { biography: content }) 
     //   setProfile({ ...profile, user: { ...profile.user, biography: content } });
     // }
-    await updateUser(user, { biography: content, tags:tags })
-    setProfile({ ...profile, user: { ...profile.user, biography: content, tags:tags } });
+    if (content !== user.content || tags !== user.tags) {
+      await updateUser(user, { biography: content, tags: tags })
+      setProfile({ ...profile, user: { ...profile.user, biography: content, tags: tags } });
+    }
     setEditing(false);
   };
 
