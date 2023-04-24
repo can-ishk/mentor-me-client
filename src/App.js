@@ -12,6 +12,7 @@ import Profile from './pages/Profile';
 import SignUp from './pages/SignUp';
 import PrivateRoute from './components/PrivateRoute';
 import Login from './pages/LogIn'
+import Chat from './pages/Chat';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
           <Route path="/users/:id" element={<Profile/>} />
           <Route path="/logIn" element={<Login/>} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/chat" element={<Chat />} />
         </Routes>
       </BrowserRouter>
       
