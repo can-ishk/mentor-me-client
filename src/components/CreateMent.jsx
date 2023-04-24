@@ -24,9 +24,13 @@ const CreateMent = () => {
     <TextField
       onFocus={() => navigate("/ments/create")}
       size="small"
+      fullWidth
       sx={{
         // gap: "0.2rem",
         whiteSpace: "nowrap",
+        '& fieldset': {
+          marginRight: 1
+      },
       }}
       placeholder="Create Ment"
     />
