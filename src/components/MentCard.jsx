@@ -41,7 +41,7 @@ export default function MentCard(props) {
   const [confirm, setConfirm] = useState(false);
   const [ment, setMent] = useState(mentData);
 
-  console.log("AAAAAAAAAA", ment, ment.title, ment.type)
+  // console.log("AAAAAAAAAA", ment, ment.title, ment.type)
 
   let maxHeight = null;
   if (preview === "primary") {

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { useTheme } from '@mui/material/styles';
+import { Autocomplete, TextField } from '@mui/material';
 import Box from '@mui/material/Box';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import InputLabel from '@mui/material/InputLabel';
@@ -31,47 +32,32 @@ function getStyles(name, itemName, theme) {
 export default function MultiSelectChip({ label, items, getter, setter }) {
     const theme = useTheme();
     const [itemName, setitemName] = [getter, setter];
-    const handleChange = (event) => {
-        const {
-            target: { value },
-        } = event;
-        setitemName(
-            // On autofill we get a stringified value.
-            typeof value === 'string' ? value.split(',') : value,
-        );
+    console.log(itemName)
+    const handleChange = (_, value) => {
+        // setitemName()
+        value[value.length-1] = value[value.length-1].value 
+        console.log(value, "hi")
+        setitemName(value)
+        console.log(itemName)
     };
 
     return (
         <div>
-            <FormControl fullWidth margin='normal'>
-                <InputLabel>{label}</InputLabel>
-                <Select
-                    id="multiple-chip"
+                <Autocomplete
                     multiple
+                    options={items}
                     value={itemName}
                     onChange={handleChange}
-                    fullWidth
-                    input={<OutlinedInput id="select-multiple-chip" label={label} />}
-                    renderValue={(selected) => (
-                        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
-                            {selected.map((value) => (
-                                <Chip key={value} label={value} />
-                            ))}
-                        </Box>
+                    filterSelectedOptions
+
+                    renderInput={(params) => (
+                        <TextField
+                            {...params}
+                            label="Skills"
+                            placeholder="Enter Skill"
+                        />
                     )}
-                    MenuProps={MenuProps}
-                >
-                    {items.map((item) => (
-                        <MenuItem
-                            key={item.value}
-                            value={item.value}
-                            style={getStyles(item.value, itemName, theme)}
-                        >
-                            {item.label}
-                        </MenuItem>
-                    ))}
-                </Select>
-            </FormControl>
+                />
         </div>
     );
 }
