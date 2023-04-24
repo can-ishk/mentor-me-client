@@ -35,7 +35,7 @@ export default function MultiSelectChip({ label, items, getter, setter }) {
     console.log(itemName)
     const handleChange = (_, value) => {
         // setitemName()
-        value[value.length-1] = value[value.length-1].value 
+        if(value.length>itemName.length) value[value.length-1] = value[value.length-1].value 
         console.log(value, "hi")
         setitemName(value)
         console.log(itemName)
@@ -49,7 +49,9 @@ export default function MultiSelectChip({ label, items, getter, setter }) {
                     value={itemName}
                     onChange={handleChange}
                     filterSelectedOptions
-
+                    getOptionDisabled={(option) =>
+                        option in itemName
+                      }
                     renderInput={(params) => (
                         <TextField
                             {...params}
