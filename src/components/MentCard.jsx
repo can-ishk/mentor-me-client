@@ -1,5 +1,6 @@
 import {
   Card,
+  Chip,
   IconButton,
   Typography,
   useTheme,
@@ -38,6 +39,8 @@ export default function MentCard(props) {
   const [editing, setEditing] = useState(false);
   const [confirm, setConfirm] = useState(false);
   const [ment, setMent] = useState(mentData);
+
+  console.log(ment)
 
   let maxHeight = null;
   if (preview === "primary") {
@@ -132,7 +135,14 @@ export default function MentCard(props) {
             >
               {ment.title}
             </Typography>
-
+            <Box>
+              {ment.tags && ment.tags.map((tag) => (
+                <Chip label={tag} />
+              ))}
+              {ment.projectTags && ment.projectTags.map((tag) => (
+                <Chip label={tag}/>
+              ))}
+            </Box>
             {preview !== "secondary" &&
               (editing ? (
                 <ContentUpdateEditor

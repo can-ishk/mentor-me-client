@@ -61,7 +61,7 @@ const MentEditor = () => {
   const [formData, setFormData] = useState({
     title: "",
     content: "",
-    type: ""
+    type: "",
   });
 
   const [serverError, setServerError] = useState("");
@@ -79,12 +79,12 @@ const MentEditor = () => {
     e.preventDefault();
 
     setLoading(true);
-    const data = await createMent({ ...formData, selected, selected2 }, isLoggedIn());
+    const data = await createMent({ ...formData, tags: selected, projectTags: selected2 }, isLoggedIn());
     setLoading(false);
     if (data && data.error) {
       setServerError(data.error);
       console.log(data.error, data.errorName)
-      dishonourableLogout( {navigate}, data.errorName, data.error );
+      dishonourableLogout({ navigate }, data.errorName, data.error);
       console.log(data)
     } else {
       navigate("/ments/" + data._id);

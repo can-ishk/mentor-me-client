@@ -1,25 +1,30 @@
-import { MenuItem, Select, Typography } from "@mui/material";
+import { MenuItem, Select, Typography, InputLabel, FormControl } from "@mui/material";
 import React from "react";
 import HorizontalStack from "./util/HorizontalStack";
 
 const SortBySelect = ({ onSortBy, sortBy, sorts }) => {
   return (
     <HorizontalStack spacing={1}>
-      <Typography color="text.secondary" variant="subtitle2">
+      <FormControl>
+
+      <InputLabel>
         Sort by:
-      </Typography>
+      </InputLabel>
       <Select
         size="small"
         value={sorts[sortBy]}
         sx={{ minWidth: 150 }}
         onChange={onSortBy}
-      >
+        autoWidth
+        label={"Sort by:"}
+        >
         {Object.keys(sorts).map((sortName, i) => (
           <MenuItem value={sorts[sortName]} key={i}>
             {sorts[sortName]}
           </MenuItem>
         ))}
       </Select>
+        </FormControl>
     </HorizontalStack>
   );
 };
