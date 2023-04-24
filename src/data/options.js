@@ -28,7 +28,7 @@ const options = [
 //     { value: "Computer Science and Engineering", label: "Computer Science and Engineering" },
 // ]
 
-// console.log(options[0].label)
+// //console.log(options[0].label)
 
 export default options;
 

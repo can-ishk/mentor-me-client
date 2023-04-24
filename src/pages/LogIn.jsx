@@ -32,7 +32,7 @@ export default function Login() {
         if (data.error) {
             setServerError(data.error);
         } else {
-            console.log(data);
+            //console.log(data);
             logInUser(data);
             navigate("/");
         }

@@ -1,4 +1,5 @@
 import { BASE_URL } from "../config";
+import { logOutUser } from "../helpers/authHelper";
 
 const getMents = async (token, query) => {
   try {
@@ -12,7 +13,7 @@ const getMents = async (token, query) => {
     );
     return await res.json();
   } catch (err) {
-    console.log(err);
+    //console.log(err);
   }
 };
 
@@ -25,12 +26,17 @@ const getMent = async (mentId, token) => {
     });
     return await res.json();
   } catch (err) {
-    console.log(err);
+    //console.log(err);
   }
 };
 
 const createMent = async (ment, user) => {
   try {
+    const userCheck = await fetch(BASE_URL+"api/users/"+user.username);
+    if(userCheck.ok===false){
+      logOutUser();
+      throw Error("User does not exist.")
+    }
     const res = await fetch(BASE_URL + "api/ments", {
       method: "POST",
       headers: {
@@ -42,7 +48,7 @@ const createMent = async (ment, user) => {
     });
     return await res.json();
   } catch (err) {
-    console.log(err);
+    //console.log(err);
   }
 };
 
@@ -59,7 +65,7 @@ const updateMent = async (mentId, user, data) => {
     });
     return res.json();
   } catch (err) {
-    console.log(err);
+    //console.log(err);
   }
 };
 
@@ -73,7 +79,7 @@ const deleteMent = async (mentId, user) => {
     });
     return res.json();
   } catch (err) {
-    console.log(err);
+    //console.log(err);
   }
 };
 

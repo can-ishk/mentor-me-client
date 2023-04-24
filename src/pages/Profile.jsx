@@ -42,8 +42,8 @@ const ProfileView = () => {
     e.preventDefault();
     const content = e.target.content.value;
     const tags = selected;
-    console.log("submittin", content)
-    console.log(profile.user)
+    //console.log("submittin", content)
+    //console.log(profile.user)
     // if(!Array.isArray(content)){
     //   await updateUser(user, { biography: content }) 
     //   setProfile({ ...profile, user: { ...profile.user, biography: content } });

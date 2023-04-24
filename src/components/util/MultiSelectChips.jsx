@@ -32,13 +32,13 @@ function getStyles(name, itemName, theme) {
 export default function MultiSelectChip({ label, items, getter, setter }) {
     const theme = useTheme();
     const [itemName, setitemName] = [getter, setter];
-    console.log(itemName)
+    //console.log(itemName)
     const handleChange = (_, value) => {
         // setitemName()
         if(value.length>itemName.length) value[value.length-1] = value[value.length-1].value 
-        console.log(value, "hi")
+        //console.log(value, "hi")
         setitemName(value)
-        console.log(itemName)
+        //console.log(itemName)
     };
 
     return (

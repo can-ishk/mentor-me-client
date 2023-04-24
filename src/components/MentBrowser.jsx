@@ -129,7 +129,7 @@ const MentBrowser = (props) => {
           {loading && <Loading />}
         <Scrollbars autoHeight autoHeightMin={'780px'} >
           {ments.map((ment, i) => (
-            <Box my={2}>
+            <Box my={2} key={i}>
               <MentCard
                 preview="primary"
                 key={ment._id}

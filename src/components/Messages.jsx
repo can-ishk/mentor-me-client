@@ -124,7 +124,7 @@ import {
         senderId
       );
   
-      console.log(username + " " + content);
+      //console.log(username + " " + content);
   
       if (conversation) {
         let newMessages = [newMessage];

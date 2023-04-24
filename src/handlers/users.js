@@ -2,6 +2,7 @@ import { BASE_URL } from "../config";
 
 const signup = async (user) => {
     try {
+      //console.log(user)
       const res = await fetch(BASE_URL + "api/users/register", {
         method: "POST",
         headers: {
@@ -12,7 +13,7 @@ const signup = async (user) => {
       });
       return await res.json();
     } catch (err) {
-      console.log(err);
+      //console.log(err);
     }
   };
   
@@ -28,7 +29,7 @@ const signup = async (user) => {
       });
       return await res.json();
     } catch (err) {
-      console.log(err);
+      //console.log(err);
     }
   };
   
@@ -37,7 +38,7 @@ const signup = async (user) => {
       const res = await fetch(BASE_URL + "api/users/" + params.id);
       return res.json();
     } catch (err) {
-      console.log(err);
+      //console.log(err);
     }
   };
   
@@ -48,7 +49,7 @@ const signup = async (user) => {
       );
       return res.json();
     } catch (err) {
-      console.log(err);
+      //console.log(err);
     }
   };
   
@@ -65,7 +66,7 @@ const signup = async (user) => {
       });
       return res.json();
     } catch (err) {
-      console.log(err);
+      //console.log(err);
     }
   };
   

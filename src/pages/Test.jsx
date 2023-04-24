@@ -8,7 +8,7 @@ import MultiSelectChip from "../components/util/MultiSelectChips";
 import options from "../data/options.js";
 
 export default function Test() {
-    console.log(options)
+    //console.log(options)
     return (
         <div>
             {/* <NavBar/>    */}
@@ -17,7 +17,7 @@ export default function Test() {
             {/* <Footer/> */}
             {/* <Loading/> */}
             {/* <Profile/> */}
-            
+
         </div>
     )
 }

@@ -32,7 +32,6 @@ export default function MentCard(props) {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const user = isLoggedIn();
-  console.log("HIU", mentData)
   const isAuthor = mentData.author?(user && user.username === mentData.author.username):false;
   const theme = useTheme();
   const iconColor = theme.palette.primary.main;
@@ -41,8 +40,6 @@ export default function MentCard(props) {
   const [editing, setEditing] = useState(false);
   const [confirm, setConfirm] = useState(false);
   const [ment, setMent] = useState(mentData);
-
-  // console.log("AAAAAAAAAA", ment, ment.title, ment.type)
 
   let maxHeight = null;
   if (preview === "primary") {
@@ -139,11 +136,11 @@ export default function MentCard(props) {
               {ment.title}
             </Typography>
             <Box display={isMobile ? 'none' : 'flex'} justifyContent={'flex-start'} >
-              {ment.tags && ment.tags.map((tag) => (
-                <Chip label={tag} sx={{ mx: 0.5 }} />
+              {ment.tags && ment.tags.map((tag, i) => (
+                <Chip label={tag} sx={{ mx: 0.5 }} key={i} />
               ))}
-              {ment.projectTags && ment.projectTags.map((tag) => (
-                <Chip label={tag} sx={{ mx: 0.5 }} />
+              {ment.projectTags && ment.projectTags.map((tag, i) => (
+                <Chip label={tag} sx={{ mx: 0.5 }} key={i} />
               ))}
             </Box>
             {preview !== "secondary" &&

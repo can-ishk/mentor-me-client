@@ -27,8 +27,8 @@ export default function ProfileCard(props) {
     if (props.profile) {
       setUser(props.profile.user);
       props.setSelected(props.profile.user.tags)
-      // console.log(props.profile.user)
-      // user.tags && console.log(user.tags)
+      // //console.log(props.profile.user)
+      // user.tags && //console.log(user.tags)
     }
   }, [props.profile]);
 

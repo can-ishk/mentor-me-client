@@ -70,7 +70,7 @@ const MentEditor = () => {
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-    console.log({ ...formData, selected, selected2 })
+    // //console.log({ ...formData, selected, selected2 })
     const errors = validate();
     setErrors(errors);
   };
@@ -83,9 +83,8 @@ const MentEditor = () => {
     setLoading(false);
     if (data && data.error) {
       setServerError(data.error);
-      console.log(data.error, data.errorName)
+      // //console.log(data.error, data.errorName)
       dishonourableLogout({ navigate }, data.errorName, data.error);
-      console.log(data)
     } else {
       navigate("/ments/" + data._id);
     }
