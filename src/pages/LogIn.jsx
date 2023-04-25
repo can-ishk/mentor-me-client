@@ -42,7 +42,7 @@ export default function Login() {
         <Container maxWidth={"xs"} sx={{ mt: 6 }}>
             <Stack alignItems="center">
                 <Typography variant="h2" color="text.secondary" sx={{ mb: 6 }}>
-                    <Link to="/" color="text.secondary" style={{ textDecoration: 'none'}} underline="none">
+                    <Link to="/" color="text.secondary" style={{ textDecoration: 'none' }} underline="none">
                         MentorMe
                     </Link>
                 </Typography>
@@ -81,8 +81,9 @@ export default function Login() {
                     </Button>
                 </Box>
                 <Box sx={{ mt: 3 }}>
-                    <Card variant="outlined" sx={{ padding: '0.5rem' }}>
-                        <Typography variant="subtitle" color="text.secondary" textAlign={'center'}>
+                    <Card variant="filled" sx={{ padding: '0.5rem' }}>
+                        <Typography sx={{
+                        }} variant="subtitle" color="text.secondary" textAlign={'center'}>
                             Copyright © 2023 {' '}
                             <Link to="/" color="inherit">
                                 MentorMe
