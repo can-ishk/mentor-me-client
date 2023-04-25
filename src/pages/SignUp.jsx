@@ -166,9 +166,6 @@ export default function SignUp() {
                         Sign Up
                     </Button>
                 </Box>
-                {/* <Box sx={{ mt: 3 }}>
-          <Copyright />
-        </Box> */}
             </Stack>
             <Footer />
         </Container>

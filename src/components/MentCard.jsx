@@ -25,6 +25,19 @@ import { BiTrash } from "react-icons/bi";
 import { MdCancel } from "react-icons/md";
 import { dishonourableLogout } from "../helpers/dishonourableLogoutHelper";
 import "./mentCard.css";
+import MarkdownEditor from "./MarkdownEditor";
+
+function arrayUnique(array) {
+  var a = array.concat();
+  for (var i = 0; i < a.length; ++i) {
+    for (var j = i + 1; j < a.length; ++j) {
+      if (a[i] === a[j])
+        a.splice(j--, 1);
+    }
+  }
+
+  return a;
+}
 
 export default function MentCard(props) {
   const { preview, removeMent } = props;
@@ -32,14 +45,16 @@ export default function MentCard(props) {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const user = isLoggedIn();
-  const isAuthor = mentData.author?(user && user.username === mentData.author.username):false;
+  const isAuthor = mentData.author ? (user && user.username === mentData.author.username) : false;
   const theme = useTheme();
   const iconColor = theme.palette.primary.main;
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-
   const [editing, setEditing] = useState(false);
   const [confirm, setConfirm] = useState(false);
   const [ment, setMent] = useState(mentData);
+  const tags = ment.tags ? ment.tags : [];
+  const projectTags = ment.tags ? ment.projectTags : [];
+  const allTags = arrayUnique([...tags, ...projectTags]);
 
   let maxHeight = null;
   if (preview === "primary") {
@@ -76,6 +91,10 @@ export default function MentCard(props) {
     e.preventDefault();
 
     const content = e.target.content.value;
+    if (content===ment.content){
+      setEditing(false);
+      return;
+    }
     const data = await updateMent(ment._id, isLoggedIn(), { content });
     if (data && data.error) {
       dishonourableLogout({ navigate }, data.errorName, data.error);
@@ -91,7 +110,7 @@ export default function MentCard(props) {
           <MentContentBox clickable={preview} ment={ment} editing={editing}>
             <HorizontalStack justifyContent="space-between" >
               <ContentDetails
-                username={ment.author? ment.author.username:"deleted"}
+                username={ment.author ? ment.author.username : "deleted"}
                 type={ment.type}
                 createdAt={ment.createdAt}
                 edited={ment.edited}
@@ -136,12 +155,12 @@ export default function MentCard(props) {
               {ment.title}
             </Typography>
             <Box display={isMobile ? 'none' : 'flex'} justifyContent={'flex-start'} marginBottom={1} >
-              {ment.tags && ment.tags.map((tag, i) => (
+              {allTags && allTags.length > 0 && allTags.map((tag, i) => (
                 <Chip label={tag} sx={{ mr: 1 }} key={i} />
               ))}
-              {ment.projectTags && ment.projectTags.map((tag, i) => (
+              {/* {ment.projectTags && ment.projectTags.map((tag, i) => (
                 <Chip label={tag} sx={{ mr: 1 }} key={i} />
-              ))}
+              ))} */}
             </Box>
             {preview !== "secondary" &&
               (editing ? (

@@ -21,6 +21,7 @@ import ErrorAlert from "./ErrorAlert";
 import options from "../data/options.js";
 import HorizontalStack from "./util/HorizontalStack";
 import MultiSelectChip from "./util/MultiSelectChips.jsx";
+import MarkdownEditor from "./MarkdownEditor";
 // import MultiValue from "react-select/dist/declarations/src/components/MultiValue";
 
 const styles = {
@@ -63,6 +64,10 @@ const MentEditor = () => {
     content: "",
     type: "",
   });
+
+  const setContent = (val)=>{
+    setFormData({...formData, content: val})
+  }
 
   const [serverError, setServerError] = useState("");
   const [errors, setErrors] = useState({});
@@ -154,11 +159,15 @@ const MentEditor = () => {
             required
             name="title"
             margin="normal"
+            sx={{
+              marginTop:3,
+              marginBottom:2
+            }}
             onChange={handleChange}
             error={errors.title !== undefined}
             helperText={errors.title}
           />
-          <TextField
+          {/* <TextField
             fullWidth
             label="Content"
             multiline
@@ -169,7 +178,8 @@ const MentEditor = () => {
             error={errors.content !== undefined}
             helperText={errors.content}
             required
-          />
+          /> */}
+          <MarkdownEditor value={formData.content} setValue={setContent} />
           <ErrorAlert error={serverError} />
           <Button
             variant="outlined"
