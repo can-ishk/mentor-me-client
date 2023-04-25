@@ -2,7 +2,7 @@ import { Card, Stack, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import "react-icons/md";
 import { MdLeaderboard } from "react-icons/md";
-import { getMents } from "../handlers/ments";
+import { getMent, getMents } from "../handlers/ments";
 import { isLoggedIn } from "../helpers/authHelper";
 import Loading from "./Loading";
 import MentCard from "./MentCard";
@@ -14,18 +14,23 @@ const TopMents = () => {
   const user = isLoggedIn();
 
   const fetchMents = async () => {
-    const query = { sortBy: "-likeCount" };
+    const query = { sortBy: {"-createdAt":1} };
 
+    // const data = await getMents(user && user.token, query);
     const data = await getMents(user && user.token, query);
 
-    const topMents = [];
+    var topMents = [];
 
     if (data && data.data) {
-      for (let i = 0; i < 3 && i < data.data.length; i++) {
-        topMents.push(data.data[i]);
+      console.log(data.data)
+      for (let i = 0; i < 2 && i < data.data.length; i++) {
+        if(data.data[i]._id!=="64479b4fa71d4ac7bd605503"){
+          topMents.push(data.data[i]);
+        }
       }
     }
-
+    const fixedMent = await getMent("64479b4fa71d4ac7bd605503", user&&user.token)
+    topMents = [fixedMent, ...topMents]
     setMents(topMents);
 
     setLoading(false);
