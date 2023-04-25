@@ -46,7 +46,7 @@ const TopMents = () => {
       {!loading ? (
         ments &&
         ments.map((ment) => (
-          <MentCard preview="secondary" ment={ment} key={ment._id} />
+          <MentCard showTags={false} preview="secondary" ment={ment} key={ment._id} />
         ))
       ) : (
         <Loading />

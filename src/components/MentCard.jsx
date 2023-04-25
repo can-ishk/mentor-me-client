@@ -39,6 +39,10 @@ function arrayUnique(array) {
   return a;
 }
 
+MentCard.defaultProps ={
+  showTags: true,
+}
+
 export default function MentCard(props) {
   const { preview, removeMent } = props;
   let mentData = props.ment;
@@ -55,7 +59,7 @@ export default function MentCard(props) {
   const tags = ment.tags ? ment.tags : [];
   const projectTags = ment.tags ? ment.projectTags : [];
   const allTags = arrayUnique([...tags, ...projectTags]);
-
+  
   let maxHeight = null;
   if (preview === "primary") {
     maxHeight = 250;
@@ -155,7 +159,7 @@ export default function MentCard(props) {
               {ment.title}
             </Typography>
             <Box display={isMobile ? 'none' : 'flex'} justifyContent={'flex-start'} marginBottom={1} >
-              {allTags && allTags.length > 0 && allTags.map((tag, i) => (
+              {props.showTags && allTags && allTags.length > 0 && allTags.map((tag, i) => (
                 <Chip label={tag} sx={{ mr: 1 }} key={i} />
               ))}
               {/* {ment.projectTags && ment.projectTags.map((tag, i) => (
