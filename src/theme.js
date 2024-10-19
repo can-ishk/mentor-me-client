@@ -2,19 +2,19 @@ import { createTheme } from "@mui/material";
 import { purple, grey, deepOrange, deepPurple } from "@mui/material/colors";
 const theme = createTheme({
   palette: {
-    mode:"dark",
-    primary: grey,
+    mode:"light",
+    primary: deepOrange,
     // divider: "#fff",
-    divider: "#192731",
+    // divider: "#192731",
     background: {
       // default: "#00101b",
       // paper: "#00090d",
-      default: "#000",
-      paper: "#00101b",
+      default: "#fff",
+      paper: "#fff",
     },
     text: {
-      primary: '#fff',
-      secondary: grey[500],
+      primary: '#000',
+      secondary: "#000",
     },
   },
   components: {

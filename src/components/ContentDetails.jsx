@@ -9,16 +9,18 @@ const ContentDetails = ({ username, type, createdAt, edited, preview }) => {
   return (
     <HorizontalStack sx={{}}>
       <Avatar width={30} height={30} username={username} />
-      <Typography variant="subtitle2" color="text.secondary" gutterBottom>
+      <Typography variant="subtitle2" gutterBottom>
         <Link
-          color="inherit"
           underline="hover"
           onClick={(e) => {
             e.stopPropagation();
           }}
           to={username==="deleted"?"/":"/users/" + username}
         >
+          <Typography display={'inline'} color={'primary'}>
+
           {username}
+          </Typography>
         </Link>
         {type && (" is "+ type)}
         {!preview && (

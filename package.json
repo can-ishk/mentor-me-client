@@ -11,6 +11,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "@uiw/react-md-editor": "^3.20.8",
+    "mentor-me": "file:",
     "moment": "^2.29.4",
     "react": "^18.2.0",
     "react-custom-scrollbars-2": "^4.5.0",

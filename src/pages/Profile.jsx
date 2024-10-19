@@ -77,18 +77,6 @@ const ProfileView = () => {
     return error;
   };
 
-  let tabs;
-  if (profile) {
-    tabs = {
-      ments: (
-        <MentBrowser
-          profileUser={profile.user}
-          contentType="ments"
-          key="ments"
-        />
-      )
-    };
-  }
 
   return (
     <Container >
@@ -106,11 +94,11 @@ const ProfileView = () => {
             />
             <Stack spacing={2}>
               {profile ? (
-                <>
-                  <ProfileTabs tab={tab} setTab={setTab} />
-
-                  {tabs[tab]}
-                </>
+                <MentBrowser
+                profileUser={profile.user}
+                contentType="ments"
+                key="ments"
+              />
               ) : (
                 <Loading />
               )}

@@ -20,6 +20,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { isLoggedIn, logOutUser } from "../helpers/authHelper";
 import Avatar from "./Avatar";
 import HorizontalStack from "./util/HorizontalStack";
+import { deepOrange } from "@mui/material/colors";
 
 export default function NavBar() {
     const navigate = useNavigate();
@@ -129,13 +130,13 @@ export default function NavBar() {
                     )}
 
                     <IconButton component={Link} to={"/"}>
-                        <AiFillHome />
+                        <AiFillHome color={deepOrange[500]}/>
                     </IconButton>
                     {user ? (
                         <>
-                            <IconButton component={Link} to={"/chat"}>
+                            {/*<IconButton component={Link} to={"/chat"}>
                                 <AiFillMessage />
-                            </IconButton>
+                            </IconButton>*/}
                             {(window.location.href.split('/')[3]==="users"&&window.location.href.split('/')[4]!==user.username) ? (
                                 <IconButton
                                     component={Link}
